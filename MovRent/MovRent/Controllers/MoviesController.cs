@@ -13,8 +13,8 @@ namespace MovRent.Controllers
         public ActionResult Random()
         {
             // Create an instance of our MovieModel
-            var movie = new Movie() { Name = "Cinderella"}
-            return View();
+            var movie = new Movie() { Name = "Cinderella" };
+            return View(movie);
         }
     }
 }
