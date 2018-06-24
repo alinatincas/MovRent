@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MovRent.Models;
+using MovRent.ViewModel;
 
 namespace MovRent.Controllers
 {
@@ -14,8 +15,24 @@ namespace MovRent.Controllers
         {
             // Create an instance of our MovieModel
             var movie = new Movie() { Name = "Cinderella" };
-            return View(movie);
+            var customers = new List<Customer> //create list customers
+            {
+                new Customer { Name = "Customer1"},
+                new Customer { Name = "Customer2"}
+            };
+
+            //create view model object
+            var viewModel = new RandomMovieViewModel {
+                Movie = movie,
+                Customers = customers      
+            };
+
+            return View(viewModel);
         }
+
+        
+
+        //[Route("movies/released/{year}/{month:regex(\\d{2}:range(1, 12)}")] //regex- regular expression
 
         public ActionResult ByReleaseDate(int year, int month) //this action takes 2 param, year, month
         {

@@ -13,11 +13,13 @@ namespace MovRent
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 "MoviesByRealeaseDate", //name
                 "movies/released/{year}/{month}", //url
                 new { controller = "Movies", action = "ByReleaseDate" }, //default
-                new { year = @"\d{4}", month = @"\d{2}"}); //apply constraints
+                new { year = @"\d{4}", month = @"\d{2}" }); //apply constraints
 
             routes.MapRoute(
                 name: "Default",
